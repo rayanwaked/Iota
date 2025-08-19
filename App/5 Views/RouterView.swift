@@ -14,29 +14,24 @@ struct RouterView: View {
     @Environment(RouterCoordinator.self) var rC
     
     var body: some View {
-        ZStack {
-            switch rC.currentView {
-            case .home:
-                HomeView()
-            case .settings:
-                VStack {
-                    Text("Settings")
-                    Button("Go home") {
-                        rC.currentView = .home
-                    }
+        switch rC.currentView {
+        case .home:
+            HomeView()
+        case .settings:
+            VStack {
+                Text("Settings")
+                Button("Go home") {
+                    rC.currentView = .home
                 }
-            case .camera:
-                CameraView()
             }
+        case .camera:
+            CameraView()
         }
     }
 }
 
 // MARK: - EXTENSION
 extension RouterView {
-    var some: some View {
-        Text("Hello world")
-    }
 }
 
 // MARK: - PREVIEW

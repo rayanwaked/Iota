@@ -16,9 +16,22 @@
 		B9B6C6DD2E54FFD00013477F /* Iota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B95B0F5B2E553B4B00697511 /* Exceptions for "App" folder in "Iota" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"2 Resources/Configurations.plist",
+			);
+			target = B9B6C6DC2E54FFD00013477F /* Iota */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B9B6C6DF2E54FFD00013477F /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B95B0F5B2E553B4B00697511 /* Exceptions for "App" folder in "Iota" target */,
+			);
 			path = App;
 			sourceTree = "<group>";
 		};
@@ -269,12 +282,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Icons;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "App/2 Resources/Entitlements.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "App/2\\ Resources/Icons.icon";
 				DEVELOPMENT_TEAM = 6R2E9P9EPV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App/2 Resources/Configurations.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Iota;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Iota requires access to your device's camera to add pictures to your entries.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Iota requires access to your device's microphone to add pictures to your entries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -298,7 +315,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -309,12 +326,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = Icons;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "App/2 Resources/Entitlements.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "App/2\\ Resources/Icons.icon";
 				DEVELOPMENT_TEAM = 6R2E9P9EPV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App/2 Resources/Configurations.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Iota;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Iota requires access to your device's camera to add pictures to your entries.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Iota requires access to your device's microphone to add pictures to your entries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -338,7 +359,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

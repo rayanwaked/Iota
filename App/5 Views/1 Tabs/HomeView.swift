@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 // MARK: - VIEW
 struct HomeView: View {
     @Environment(RouterCoordinator.self) var rC
+    @Query private var entries: [Entry]
     
     var body: some View {
         List {
-            Text("Entry 1")
-            Text("Entry 2")
-            Text("Entry 3")
-            Text("Entry 4")
+            ForEach(entries, id: \.self) { entry in
+                Text(entry.title)
+            }
+            
             Button {
                 rC.currentView = .camera
             } label: {

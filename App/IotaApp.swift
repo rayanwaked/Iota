@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 // MARK: - MAIN APP
 @main
@@ -19,6 +20,7 @@ struct IotaApp: App {
                 .environment(mC)
                 .environment(rC)
         }
+        .modelContainer(for: Entry.self)
     }
 }
 
