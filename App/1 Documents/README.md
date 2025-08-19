@@ -1,13 +1,13 @@
 #  README
 
-<img width="5506" height="1635" alt="Iota Leaves Banner Aug 17 2025 (2)" src="https://github.com/user-attachments/assets/7967f3e5-d902-4ce7-9cd2-b5e4cf44229c" />
+<img width="5507" height="1577" alt="Light Banner from Rayan App Resources" src="https://github.com/user-attachments/assets/30ef3dbc-3873-431a-aa1e-bdbce6840542" />
 
 <h2 align="center"><strong>Iota</strong></h2>
 
 <div align="center">
   
-![](https://img.shields.io/badge/-Swift-informational?style=flat&logo=swift&logoColor=white&color=FF8C00)
-![](https://img.shields.io/badge/-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=FF8C00)
+![](https://img.shields.io/badge/-Swift-informational?style=flat&logo=swift&logoColor=white&color=007AFF)
+![](https://img.shields.io/badge/-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=AF52DE)
 ![](https://img.shields.io/badge/-iOS-informational?style=flat&logo=apple&logoColor=white&color=FF8C00)
 
 </div>
@@ -79,5 +79,4 @@ Top‑level screens composed from components and features:
 
 This project is released under a dual license-policy framework. See `LICENSE.md` and `POLICY.md` for full details.
 
-<img width="5507" height="1635" alt="ChatGPT Image Aug 17 2025 Night Version (2)" src="https://github.com/user-attachments/assets/811265ec-2f6f-4229-9d6e-f4e9e8a37ea4" />
-
+<img width="5507" height="1635" alt="Banner Design Aug 19 2025" src="https://github.com/user-attachments/assets/1b0a317d-2770-4b46-ae90-6cf947a59e66" />
