@@ -6,14 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B9B6C7552E55009F0013477F /* MijickCamera in Frameworks */ = {isa = PBXBuildFile; productRef = B9B6C7542E55009F0013477F /* MijickCamera */; };
+		B9B6C7582E5500AD0013477F /* BezelKit in Frameworks */ = {isa = PBXBuildFile; productRef = B9B6C7572E5500AD0013477F /* BezelKit */; };
+		B9B6C75B2E5500B50013477F /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = B9B6C75A2E5500B50013477F /* PostHog */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B9B6C6DD2E54FFD00013477F /* Iota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		B9B6C6DF2E54FFD00013477F /* Iota */ = {
+		B9B6C6DF2E54FFD00013477F /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Iota;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B6C75B2E5500B50013477F /* PostHog in Frameworks */,
+				B9B6C7582E5500AD0013477F /* BezelKit in Frameworks */,
+				B9B6C7552E55009F0013477F /* MijickCamera in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +41,7 @@
 		B9B6C6D42E54FFD00013477F = {
 			isa = PBXGroup;
 			children = (
-				B9B6C6DF2E54FFD00013477F /* Iota */,
+				B9B6C6DF2E54FFD00013477F /* App */,
 				B9B6C6DE2E54FFD00013477F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,10 +70,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				B9B6C6DF2E54FFD00013477F /* Iota */,
+				B9B6C6DF2E54FFD00013477F /* App */,
 			);
 			name = Iota;
 			packageProductDependencies = (
+				B9B6C7542E55009F0013477F /* MijickCamera */,
+				B9B6C7572E5500AD0013477F /* BezelKit */,
+				B9B6C75A2E5500B50013477F /* PostHog */,
 			);
 			productName = Iota;
 			productReference = B9B6C6DD2E54FFD00013477F /* Iota.app */;
@@ -94,6 +106,11 @@
 			);
 			mainGroup = B9B6C6D42E54FFD00013477F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B9B6C7532E55009F0013477F /* XCRemoteSwiftPackageReference "Camera" */,
+				B9B6C7562E5500AD0013477F /* XCRemoteSwiftPackageReference "BezelKit" */,
+				B9B6C7592E5500B50013477F /* XCRemoteSwiftPackageReference "posthog-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B9B6C6DE2E54FFD00013477F /* Products */;
 			projectDirPath = "";
@@ -249,18 +266,22 @@
 		B9B6C6E92E54FFD10013477F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icons;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "App/2\\ Resources/Icons.icon";
 				DEVELOPMENT_TEAM = 6R2E9P9EPV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Iota requires access to your device's camera to add pictures to your entries.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Iota requires access to your device's microphone to add pictures to your entries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -269,30 +290,38 @@
 				PRODUCT_BUNDLE_IDENTIFIER = waked.Iota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		B9B6C6EA2E54FFD10013477F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icons;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "App/2\\ Resources/Icons.icon";
 				DEVELOPMENT_TEAM = 6R2E9P9EPV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Iota requires access to your device's camera to add pictures to your entries.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Iota requires access to your device's microphone to add pictures to your entries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,12 +330,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = waked.Iota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -332,6 +365,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B9B6C7532E55009F0013477F /* XCRemoteSwiftPackageReference "Camera" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/veraposeidon/Camera.git";
+			requirement = {
+				branch = "fix/sendable-protocol";
+				kind = branch;
+			};
+		};
+		B9B6C7562E5500AD0013477F /* XCRemoteSwiftPackageReference "BezelKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markbattistella/BezelKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		B9B6C7592E5500B50013477F /* XCRemoteSwiftPackageReference "posthog-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PostHog/posthog-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.30.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9B6C7542E55009F0013477F /* MijickCamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B6C7532E55009F0013477F /* XCRemoteSwiftPackageReference "Camera" */;
+			productName = MijickCamera;
+		};
+		B9B6C7572E5500AD0013477F /* BezelKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B6C7562E5500AD0013477F /* XCRemoteSwiftPackageReference "BezelKit" */;
+			productName = BezelKit;
+		};
+		B9B6C75A2E5500B50013477F /* PostHog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B6C7592E5500B50013477F /* XCRemoteSwiftPackageReference "posthog-ios" */;
+			productName = PostHog;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B9B6C6D52E54FFD00013477F /* Project object */;
 }

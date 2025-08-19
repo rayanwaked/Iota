@@ -1,0 +1,42 @@
+{
+  "originHash" : "21baedd8693aa0260b48e425a8430bdff80a848bf92285a599fea8d2b002193c",
+  "pins" : [
+    {
+      "identity" : "bezelkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/markbattistella/BezelKit",
+      "state" : {
+        "revision" : "bfa3e305a418096ce9d159b178330b49e46699e8",
+        "version" : "4.0.0"
+      }
+    },
+    {
+      "identity" : "camera",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/veraposeidon/Camera.git",
+      "state" : {
+        "branch" : "fix/sendable-protocol",
+        "revision" : "1ba0a2ed7314ee03b79c86c9fcba02af8d0b04a1"
+      }
+    },
+    {
+      "identity" : "posthog-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PostHog/posthog-ios",
+      "state" : {
+        "revision" : "912218721ca4c253cc0dddd863fd457c00f96e40",
+        "version" : "3.30.1"
+      }
+    },
+    {
+      "identity" : "timer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/Timer",
+      "state" : {
+        "revision" : "342371c33c3f084d82a4818447ba77d858064c85",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,53 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "display-p3:0.90868,0.91988,1.00000,1.00000",
+          "display-p3:1.00000,0.92857,0.95583,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "display-p3:0.06803,0.11190,0.16788,1.00000",
+          "display-p3:0.12144,0.07658,0.12127,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "image-name" : "Iota Shard.png",
+          "name" : "Iota Shard",
+          "position" : {
+            "scale" : 0.55,
+            "translation-in-points" : [
+              -16.589483005228956,
+              2.4
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
