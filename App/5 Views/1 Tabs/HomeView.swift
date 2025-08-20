@@ -10,13 +10,20 @@ import SwiftData
 
 // MARK: - VIEW
 struct HomeView: View {
-    @Environment(RouterCoordinator.self) var rC
+    @Environment(RouterCoordinator.self) private var rC
+    @Environment(ManagerCoordinator.self) private var mC
+    @Environment(\.modelContext) private var entry
     @Query private var entries: [Entry]
     
     var body: some View {
         List {
             ForEach(entries, id: \.self) { entry in
-                Text(entry.title)
+                Button {
+                    rC.currentView = .entry
+                    mC.eM.selectedEntry = entry.id
+                } label: {
+                    Text(entry.title ?? "")
+                }
             }
             
             Button {
@@ -24,14 +31,30 @@ struct HomeView: View {
             } label: {
                 Text("capture new entry")
             }
+            
+            Button {
+                entry.insert(Entry(
+                    title: "New",
+                    date: Date(),
+                    desc: "",
+                    img: Data()
+                ))
+                try? entry.save()
+            } label: {
+                Text("new empty entry")
+            }
         }
+        .refreshable { }
     }
 }
 
 // MARK: - PREVIEW
 #Preview {
     @Previewable @State var rC = RouterCoordinator()
+    @Previewable @State var mC = ManagerCoordinator()
     
     HomeView()
         .environment(rC)
+        .environment(mC)
+        .modelContainer(for: Entry.self, inMemory: true)
 }

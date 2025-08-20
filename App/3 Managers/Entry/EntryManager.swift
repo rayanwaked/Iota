@@ -7,3 +7,6 @@
 
 import SwiftUI
 
+final class EntryManager {
+    var selectedEntry: UUID? = nil
+}

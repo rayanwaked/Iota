@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 internal import Combine
 
 // MARK: - VIEW
 struct RouterView: View {
-    @Environment(ManagerCoordinator.self) var mC
-    @Environment(RouterCoordinator.self) var rC
+    @Environment(ManagerCoordinator.self) private var mC
+    @Environment(RouterCoordinator.self) private var rC
     
     var body: some View {
         switch rC.currentView {
@@ -26,6 +27,8 @@ struct RouterView: View {
             }
         case .camera:
             CameraView()
+        case .entry:
+            EntryView(entryUUID: mC.eM.selectedEntry ?? UUID())
         }
     }
 }
@@ -42,4 +45,5 @@ extension RouterView {
     RouterView()
         .environment(mC)
         .environment(rC)
+        .modelContainer(for: Entry.self, inMemory: true)
 }

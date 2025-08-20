@@ -11,9 +11,10 @@ import SwiftData
 // MARK: - ENTRY
 @Model
 final class Entry {
-    var title: String
-    var date: Date
-    var desc: String
+    var id = UUID()
+    var title: String?
+    var date: Date?
+    var desc: String?
     var img: Data?
 
     init(title: String, date: Date, desc: String, img: Data) {

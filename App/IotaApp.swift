@@ -28,7 +28,7 @@ struct IotaApp: App {
 @Observable
 final class RouterCoordinator {
     enum views {
-        case home, settings, camera
+        case home, settings, camera, entry
     }
     
     var currentView = views.home
@@ -36,4 +36,7 @@ final class RouterCoordinator {
 
 // MARK: - MANAGER COORDINATOR
 @Observable
-final class ManagerCoordinator {}
+final class ManagerCoordinator {
+    /// entryManager
+    var eM = EntryManager()
+}
