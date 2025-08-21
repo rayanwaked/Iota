@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import SwiftData
 
 // MARK: - VIEW
@@ -21,9 +22,7 @@ struct HomeView: View {
                 Button {
                     rC.currentView = .entry
                     mC.eM.selectedEntry = entry.id
-                } label: {
-                    Text(entry.title ?? "")
-                }
+                } label: { label(for: entry) }
             }
             
             Button {
@@ -33,6 +32,21 @@ struct HomeView: View {
             }
         }
         .refreshable { }
+    }
+}
+
+extension HomeView {
+    func label(for entry: Entry) -> some View {
+        VStack {
+            if let imgData = entry.img,
+               let uiImage = UIImage(data: imgData) {
+                Image(uiImage: uiImage)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: Screen.width, maxHeight: Screen.height / 4)
+            }
+            
+            Text(entry.title ?? "")
+        }
     }
 }
 

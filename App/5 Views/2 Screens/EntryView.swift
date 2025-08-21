@@ -16,6 +16,7 @@ struct EntryView: View {
     }
     
     @Environment(RouterCoordinator.self) private var rC
+    @Environment(\.modelContext) private var mC
     @Query private var entries: [Entry]
     @State var viewState: ViewState = .view
     var entryUUID: UUID
@@ -42,16 +43,37 @@ struct EntryView: View {
     }
 }
 
+// MARK: - IMAGE
+extension EntryView {
+    var image: some View {
+        VStack {
+            if let imgData = sE?.img,
+                let uiImage = UIImage(data: imgData) {
+                    Image(uiImage: uiImage)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: Screen.width, maxHeight: Screen.height / 4)
+                }
+        }
+    }
+}
+
+// MARK: - DATE
+extension EntryView {
+    var date: some View {
+        Text(sE?.date?.formatted(date: .abbreviated,
+                                  time: .omitted) ??
+             "Unknown date")
+    }
+}
+
 // MARK: - VIEW CONTENT
 extension EntryView {
     var viewContent: some View {
         List {
             Text(sE?.title ?? "")
-            Text("\(sE?.date ?? Date())")
+            image
+            date
             Text(sE?.desc ?? "")
-            if let imgData = sE?.img, let uiImage = UIImage(data: imgData) {
-                Image(uiImage: uiImage)
-            }
             
             Button {
                 editTitle = sE?.title ?? ""
@@ -70,6 +92,13 @@ extension EntryView {
         List {
             TextField("edit title", text: $editTitle)
             TextField("edit desc", text: $editDesc)
+            
+            Button {
+                if let sE { mC.delete(sE) }
+            } label: {
+                Text("delete entry")
+                    .foregroundStyle(.red)
+            }
             
             Button {
                 sE?.title = editTitle
