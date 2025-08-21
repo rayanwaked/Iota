@@ -11,20 +11,78 @@ import UIKit
 
 // MARK: - VIEW
 struct EntryView: View {
-    @Query private var entries: [Entry]
-    var entryUUID: UUID
+    enum ViewState {
+        case view, edit
+    }
     
+    @Environment(RouterCoordinator.self) private var rC
+    @Query private var entries: [Entry]
+    @State var viewState: ViewState = .view
+    var entryUUID: UUID
     var sE: Entry? {
         entries.first(where: {$0.id == entryUUID})
     }
     
+    @State private var editTitle: String = ""
+    @State private var editDesc: String = ""
+    
     var body: some View {
         VStack {
+            switch viewState {
+            case .view: viewContent
+            case .edit: editContent
+            }
+            
+            Button {
+                rC.currentView = .home
+            } label: {
+                Text("go back home")
+            }
+        }
+    }
+}
+
+// MARK: - VIEW CONTENT
+extension EntryView {
+    var viewContent: some View {
+        List {
             Text(sE?.title ?? "")
             Text("\(sE?.date ?? Date())")
             Text(sE?.desc ?? "")
             if let imgData = sE?.img, let uiImage = UIImage(data: imgData) {
                 Image(uiImage: uiImage)
+            }
+            
+            Button {
+                editTitle = sE?.title ?? ""
+                editDesc = sE?.desc ?? ""
+                viewState = .edit
+            } label: {
+                Text("edit content")
+            }
+        }
+    }
+}
+
+// MARK: - EDIT CONTENT
+extension EntryView {
+    var editContent: some View {
+        List {
+            TextField("edit title", text: $editTitle)
+            TextField("edit desc", text: $editDesc)
+            
+            Button {
+                sE?.title = editTitle
+                sE?.desc = editDesc
+                viewState = .view
+            } label: {
+                Text("save changes")
+            }
+            
+            Button {
+                viewState = .view
+            } label: {
+                Text("view content")
             }
         }
     }
@@ -32,5 +90,9 @@ struct EntryView: View {
 
 // MARK: - PREVIEW
 #Preview {
+    @Previewable @State var rC = RouterCoordinator()
+    
     EntryView(entryUUID: UUID())
+        .environment(rC)
 }
+

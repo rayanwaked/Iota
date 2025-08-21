@@ -31,18 +31,6 @@ struct HomeView: View {
             } label: {
                 Text("capture new entry")
             }
-            
-            Button {
-                entry.insert(Entry(
-                    title: "New",
-                    date: Date(),
-                    desc: "",
-                    img: Data()
-                ))
-                try? entry.save()
-            } label: {
-                Text("new empty entry")
-            }
         }
         .refreshable { }
     }

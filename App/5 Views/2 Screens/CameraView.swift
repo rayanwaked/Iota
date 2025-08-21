@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import MijickCamera
+import SwiftData
 
 func saveImageInGallery(_ image: UIImage) {
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -16,6 +17,7 @@ func saveImageInGallery(_ image: UIImage) {
 // MARK: - VIEW
 struct CameraView: View {
     @Environment(RouterCoordinator.self) var rC
+    @Environment(\.modelContext) private var entry
     
     var body: some View {
         ZStack {
@@ -27,7 +29,16 @@ struct CameraView: View {
             
             MCamera()
                 .onImageCaptured { image, controller in
-                    saveImageInGallery(image)
+                    if let data = image.jpegData(compressionQuality: 1) {
+                        entry.insert(Entry(
+                            title: "New Capture",
+                            date: Date(),
+                            desc: "",
+                            img: data
+                        ))
+                        
+                        rC.currentView = .home
+                    }
                 }
                 .startSession()
         }
