@@ -1,11 +1,13 @@
-<img width="5507" height="1577" alt="Light Banner from Rayan App Resources" src="https://github.com/user-attachments/assets/30ef3dbc-3873-431a-aa1e-bdbce6840542" />
-
-<h2 align="center"><strong>Iota</strong></h2>
 
 <div align="center">
+
+<img width="125" height="125" alt="Icons-iOS-Default-1024x1024@1x" src="https://github.com/user-attachments/assets/9e0f42ea-9168-4893-8d06-ad55b94fb6f6" />
+
+<h2><strong>Iota</strong></h2>
   
 ![](https://img.shields.io/badge/-Swift-informational?style=flat&logo=swift&logoColor=white&color=007AFF)
 ![](https://img.shields.io/badge/-SwiftUI-informational?style=flat&logo=swift&logoColor=white&color=AF52DE)
+![](https://img.shields.io/badge/-SwiftData-informational?style=flat&logo=swift&logoColor=white&color=AF52DE)
 ![](https://img.shields.io/badge/-iOS-informational?style=flat&logo=apple&logoColor=white&color=FF8C00)
 
 </div>
@@ -13,6 +15,8 @@
 > ⚠️ **Caution**
 > 
 > This repository represents an early‑stage project. The codebase is evolving rapidly and major refactors are expected. APIs, folder names and internal structures may change without notice. If you build on top of Iota today, be prepared to rebase often.
+
+<img width="5507" height="1577" alt="Light Banner from Rayan App Resources" src="https://github.com/user-attachments/assets/30ef3dbc-3873-431a-aa1e-bdbce6840542" />
 
 ## Overview
 
