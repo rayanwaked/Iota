@@ -17,35 +17,92 @@ struct HomeView: View {
     @Query private var entries: [Entry]
     
     var body: some View {
-        List {
-            ForEach(entries, id: \.self) { entry in
+        VStack {
+            header
+            ScrollView {
+                ForEach(entries, id: \.self) { entry in
+                    Button {
+                        rC.currentView = .entry
+                        mC.eM.selectedEntry = entry.id
+                    } label: { card(for: entry) }
+                }
+                
                 Button {
-                    rC.currentView = .entry
-                    mC.eM.selectedEntry = entry.id
-                } label: { label(for: entry) }
+                    rC.currentView = .camera
+                } label: {
+                    Text("capture new entry")
+                }
             }
-            
-            Button {
-                rC.currentView = .camera
-            } label: {
-                Text("capture new entry")
-            }
+            .refreshable { }
         }
-        .refreshable { }
     }
 }
 
+// MARK: - EXTENSIONS
 extension HomeView {
-    func label(for entry: Entry) -> some View {
+    // MARK: - HOME HEADER
+    var header: some View {
+        HStack {
+            Text("Iota")
+                .font(.system(size: 34))
+                .monospaced()
+                .bold()
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, Padding.standard)
+    }
+
+
+    // MARK: - ENTRY CARD
+    func card(for entry: Entry) -> some View {
+        VStack {
+            ZStack(alignment: .topTrailing) {
+                image(for: entry)
+                
+                date(for: entry)
+                .padding(.horizontal, Padding.standard)
+            }
+            
+            title(for: entry)
+            description(for: entry)
+        }
+    }
+
+
+    // MARK: - ENTRY TITLE
+    func title(for entry: Entry) -> some View {
+        Text(entry.title ?? "unknown entry")
+    }
+
+
+    // MARK: - ENTRY DATE
+    func date(for entry: Entry) -> some View {
+        Text(entry.date?
+            .formatted(
+                date: .abbreviated,
+                time: .omitted
+            ) ?? "date unknown"
+        )
+        .padding(.horizontal, Padding.standard)
+    }
+
+
+    // MARK: - ENTRY DESCRIPTION
+    func description(for entry: Entry) -> some View {
+        Text(entry.desc ?? "no description")
+    }
+
+
+    // MARK: - ENTRY IMAGE
+    func image(for entry: Entry) -> some View {
         VStack {
             if let imgData = entry.img,
                let uiImage = UIImage(data: imgData) {
                 Image(uiImage: uiImage)
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: Screen.width, maxHeight: Screen.height / 4)
             }
-            
-            Text(entry.title ?? "")
         }
     }
 }

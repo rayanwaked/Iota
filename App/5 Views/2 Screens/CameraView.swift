@@ -40,6 +40,7 @@ struct CameraView: View {
                         rC.currentView = .home
                     }
                 }
+                .setCloseMCameraAction { rC.currentView = .home }
                 .startSession()
         }
     }
